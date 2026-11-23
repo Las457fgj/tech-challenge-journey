@@ -4,257 +4,196 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>دخول الفرق | رحلة التحدي التقني</title>
+<title>رحلة التحدي التقني</title>
 <style>
 *{box-sizing:border-box}
-:root{
- --navy:#25364B;
- --blue:#647D96;
- --cyan:#A9C5D6;
- --pale:#D3E3E8;
- --white:#E9EEF3;
-}
 body{
  margin:0;
  min-height:100vh;
  font-family:Tahoma,Arial,sans-serif;
- color:var(--white);
+ color:#25364B;
  background:
- radial-gradient(ellipse at 15% 20%,#647D9650,transparent 35%),
- radial-gradient(ellipse at 85% 85%,#A9C5D630,transparent 35%),
- linear-gradient(135deg,#172638,#25364B 55%,#30475C);
- overflow-x:hidden;
-}
-body:before,body:after{
- content:"";
- position:fixed;
- width:300px;height:300px;
- border:1px solid #A9C5D622;
- border-radius:50%;
- pointer-events:none;
-}
-body:before{top:-160px;right:-100px;box-shadow:0 0 0 35px #A9C5D609,0 0 0 75px #A9C5D606}
-body:after{bottom:-190px;left:-100px;box-shadow:0 0 0 35px #A9C5D609,0 0 0 75px #A9C5D606}
-.page{
- position:relative;
- z-index:1;
- max-width:1100px;
- margin:auto;
+ radial-gradient(circle at 10% 15%,#A9C5D677,transparent 30%),
+ radial-gradient(circle at 90% 85%,#B8B3D355,transparent 32%),
+ linear-gradient(135deg,#E9EEF3,#D3E3E8,#F5F8FA);
+ display:flex;
+ align-items:center;
+ justify-content:center;
  padding:25px;
- min-height:100vh;
- display:flex;
- flex-direction:column;
 }
-nav{
- display:flex;
- justify-content:space-between;
- align-items:center;
+.page{
+ width:100%;
+ max-width:700px;
+ text-align:center;
 }
-.logo{font-size:17px;font-weight:bold;letter-spacing:1px}
-.logo span{color:var(--cyan)}
-nav a{
- color:#D3E3E8;
- text-decoration:none;
+.school{
+ font-size:17px;
+ color:#425C75;
+ font-weight:bold;
+ margin-bottom:12px;
+}
+.team{
  font-size:14px;
- padding:10px 15px;
- border:1px solid #A9C5D633;
- border-radius:10px;
+ color:#647D96;
+ letter-spacing:.5px;
+ margin-bottom:35px;
 }
-.main{
- flex:1;
+.symbol{
+ width:75px;
+ height:75px;
+ border-radius:23px;
+ margin:0 auto 22px;
  display:grid;
- grid-template-columns:1fr 1fr;
- align-items:center;
- gap:50px;
- padding:55px 0;
+ place-items:center;
+ background:linear-gradient(145deg,#647D96,#A9C5D6);
+ color:white;
+ font-size:35px;
+ box-shadow:0 10px 25px #647D9633;
 }
-.intro .tag{
- color:var(--cyan);
- border:1px solid #A9C5D655;
- background:#A9C5D611;
- border-radius:30px;
- padding:9px 16px;
- display:inline-block;
- font-size:13px;
+h1{
+ font-size:clamp(34px,7vw,53px);
+ line-height:1.5;
+ margin:0 0 12px;
+ color:#25364B;
 }
-.intro h1{
- font-size:clamp(38px,5vw,58px);
- line-height:1.4;
- margin:24px 0 12px;
-}
-.intro h1 span{color:var(--cyan)}
-.intro p{
- color:#C1D0DD;
- line-height:2.1;
+h1 span{color:#647D96}
+.description{
+ color:#647D96;
  font-size:16px;
- max-width:460px;
-}
-.features{
- display:flex;
- gap:12px;
- flex-wrap:wrap;
- margin-top:30px;
-}
-.feature{
- border:1px solid #A9C5D633;
- border-radius:12px;
- padding:12px 15px;
- background:#FFFFFF09;
- color:#D3E3E8;
- font-size:13px;
+ line-height:2;
+ margin:0 auto 30px;
 }
 .card{
- background:linear-gradient(145deg,#FFFFFF18,#FFFFFF09);
- border:1px solid #D3E3E833;
- border-radius:25px;
- padding:32px;
- box-shadow:0 25px 70px #101B2B55;
- backdrop-filter:blur(12px);
+ max-width:490px;
+ margin:0 auto;
+ padding:30px;
+ background:#FFFFFFD9;
+ border:1px solid white;
+ border-radius:24px;
+ box-shadow:0 15px 45px #25364B12;
 }
-.card-top{
- display:flex;
- justify-content:space-between;
- align-items:center;
- margin-bottom:25px;
+.card h2{
+ font-size:21px;
+ margin:0 0 25px;
 }
-.card-top h2{font-size:23px;margin:0}
-.live{
- color:#B8D9C6;
- font-size:12px;
+.field{
+ text-align:right;
+ margin-bottom:19px;
 }
-.live:before{
- content:"";
- display:inline-block;
- width:7px;height:7px;
- background:#8FC5A6;
- border-radius:50%;
- margin-left:7px;
- box-shadow:0 0 10px #8FC5A6;
-}
-.field{margin-bottom:20px}
 label{
  display:block;
- color:#D3E3E8;
+ margin-bottom:9px;
  font-size:14px;
- margin-bottom:10px;
+ color:#425C75;
 }
 input{
  width:100%;
  padding:16px;
- background:#17263888;
- border:1px solid #A9C5D655;
+ border:1px solid #C5D7E1;
  border-radius:12px;
- outline:none;
- color:white;
- font-size:16px;
+ background:#F7FAFC;
  font-family:inherit;
- transition:.2s;
+ font-size:16px;
+ color:#25364B;
+ outline:none;
 }
 input:focus{
- border-color:var(--cyan);
- box-shadow:0 0 0 3px #A9C5D622;
+ border-color:#647D96;
+ box-shadow:0 0 0 3px #A9C5D633;
 }
-input::placeholder{color:#91A6B9}
+input::placeholder{color:#9AAEBD}
 button{
  width:100%;
- border:0;
- border-radius:12px;
  padding:17px;
- background:linear-gradient(100deg,#A9C5D6,#D3E3E8);
- color:#25364B;
+ border:0;
+ border-radius:13px;
+ background:linear-gradient(100deg,#647D96,#8EACC0);
+ color:white;
+ font-family:inherit;
  font-size:17px;
  font-weight:bold;
- font-family:inherit;
  cursor:pointer;
  transition:.2s;
 }
-button:hover{transform:translateY(-2px);box-shadow:0 10px 25px #A9C5D633}
+button:hover{transform:translateY(-2px)}
 #message{
- text-align:center;
- color:#D3E3E8;
- line-height:1.8;
+ color:#647D96;
  font-size:14px;
- margin:18px 0 0;
- min-height:25px;
+ line-height:1.8;
+ min-height:24px;
+ margin:15px 0 0;
 }
 .note{
- border-top:1px solid #D3E3E822;
- margin-top:23px;
- padding-top:18px;
- color:#AFC1D0;
- text-align:center;
+ color:#8A9CAD;
  font-size:12px;
  line-height:1.8;
+ margin-top:19px;
 }
 footer{
- text-align:center;
- color:#A9C5D699;
+ margin-top:30px;
+ color:#8A9CAD;
  font-size:12px;
- padding:15px;
 }
-@media(max-width:760px){
- .main{grid-template-columns:1fr;gap:30px;padding:45px 0}
- .intro{text-align:center}
- .intro p{margin:auto}
- .features{justify-content:center}
+@media(max-width:480px){
+ body{padding:22px 15px}
  .card{padding:25px 20px}
+ .school{font-size:15px}
+ .description{font-size:14px}
 }
 </style>
 </head>
 <body>
-<div class="page">
-<nav>
- <div class="logo">◈ <span>TECH</span> JOURNEY</div>
- <a href="index.html">الصفحة الرئيسية ←</a>
-</nav>
+<main class="page">
 
-<main class="main">
-<section class="intro">
- <div class="tag">✦ مستعدون للتحدي؟</div>
- <h1>حان وقت<br><span>الانطلاق!</span></h1>
- <p>
- أهلًا بالمبدعين! جهّزوا فريقكم واستعدوا لخوض رحلة
- من التحديات التقنية، واكتشاف أسرار العالم الرقمي.
- </p>
- <div class="features">
-  <div class="feature">◈ أربعة تحديات</div>
-  <div class="feature">⌁ عمل جماعي</div>
-  <div class="feature">✧ إبداع وابتكار</div>
- </div>
-</section>
+<div class="school">مدرسة سترة الثانوية للبنات</div>
+<div class="team">فريق التمكين الرقمي</div>
+
+<div class="symbol">✧</div>
+
+<h1>رحلة التحدي <span>التقني</span></h1>
+
+<p class="description">
+رحلة من الإبداع والتفكير والتكنولوجيا
+<br>
+استعدوا لاكتشاف مهاراتكم وخوض أربعة تحديات نحو المستقبل.
+</p>
 
 <section class="card">
- <div class="card-top">
-  <h2>دخول الفريق</h2>
-  <span class="live">بوابة المشاركة</span>
- </div>
+<h2>بوابة دخول الفرق</h2>
 
- <form id="joinForm">
-  <div class="field">
-   <label for="teamName">اسم الفريق</label>
-   <input id="teamName" type="text" placeholder="اكتبوا اسم فريقكم" required>
-  </div>
-  <div class="field">
-   <label for="gameCode">رمز اللعبة</label>
-   <input id="gameCode" type="text" placeholder="أدخلوا الرمز الذي أعطتكم المعلمة" required>
-  </div>
-  <button type="submit">استعدوا للانطلاق ←</button>
- </form>
-
- <p id="message"></p>
- <div class="note">
-  بعد إدخال البيانات، ستنتقلون إلى مرحلة الانتظار
-  حتى تعلن المعلمة بدء الرحلة.
- </div>
-</section>
-</main>
-
-<footer>رحلة التحدي التقني · حيث يبدأ الإبداع</footer>
+<form id="joinForm">
+<div class="field">
+<label for="teamName">اسم الفريق</label>
+<input id="teamName" type="text"
+placeholder="اكتبوا اسم فريقكم" required>
 </div>
+
+<div class="field">
+<label for="gameCode">رمز اللعبة</label>
+<input id="gameCode" type="text"
+placeholder="أدخلوا رمز اللعبة" required>
+</div>
+
+<button type="submit">ابدؤوا الرحلة ←</button>
+</form>
+
+<p id="message"></p>
+
+<div class="note">
+بعد الانضمام، انتظروا إعلان المعلمة لبدء التحدي.
+</div>
+</section>
+
+<footer>
+رحلة التحدي التقني · 2026
+</footer>
+
+</main>
 
 <script>
 document.getElementById("joinForm").addEventListener("submit",function(e){
  e.preventDefault();
+
  const team=document.getElementById("teamName").value.trim();
  const code=document.getElementById("gameCode").value.trim();
  const message=document.getElementById("message");
@@ -263,7 +202,8 @@ document.getElementById("joinForm").addEventListener("submit",function(e){
   message.textContent="يرجى إدخال اسم الفريق ورمز اللعبة.";
   return;
  }
- message.textContent="تم إدخال البيانات! سيتم تفعيل الانضمام عند ربط اللعبة بقاعدة البيانات.";
+
+ message.textContent="تم إدخال البيانات! سيتم تفعيل الانضمام بعد ربط اللعبة بقاعدة البيانات.";
 });
 </script>
 </body>
