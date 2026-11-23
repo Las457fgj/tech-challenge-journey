@@ -190,21 +190,53 @@ placeholder="أدخلوا رمز اللعبة" required>
 
 </main>
 
-<script>
-document.getElementById("joinForm").addEventListener("submit",function(e){
- e.preventDefault();
 
- const team=document.getElementById("teamName").value.trim();
- const code=document.getElementById("gameCode").value.trim();
- const message=document.getElementById("message");
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
+import {
+  getAuth,
+  signInAnonymously
+} from "https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js";
+import { getDatabase } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-database.js";
 
- if(!team||!code){
-  message.textContent="يرجى إدخال اسم الفريق ورمز اللعبة.";
-  return;
- }
+const firebaseConfig = {
+  apiKey: "AIzaSyDo7I5NbIDsDYdmxEEpclYFusm_B--jPvM",
+  authDomain: "tech-challenge-journe.firebaseapp.com",
+  databaseURL: "https://tech-challenge-journe-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "tech-challenge-journe",
+  storageBucket: "tech-challenge-journe.firebasestorage.app",
+  messagingSenderId: "882079741988",
+  appId: "1:882079741988:web:ed93a3bc88aee9b90a40b1",
+  measurementId: "G-J01MBQ56D6"
+};
 
- message.textContent="تم إدخال البيانات! سيتم تفعيل الانضمام بعد ربط اللعبة بقاعدة البيانات.";
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const database = getDatabase(app);
+
+document.getElementById("joinForm").addEventListener("submit", async function(e) {
+  e.preventDefault();
+
+  const team = document.getElementById("teamName").value.trim();
+  const code = document.getElementById("gameCode").value.trim();
+  const message = document.getElementById("message");
+
+  if (!team || !code) {
+    message.textContent = "يرجى إدخال اسم الفريق ورمز اللعبة.";
+    return;
+  }
+
+  message.textContent = "جاري الاتصال...";
+
+  try {
+    await signInAnonymously(auth);
+    message.textContent = "تم الاتصال بنجاح! سنكمل تجهيز الانضمام.";
+  } catch (error) {
+    console.error(error);
+    message.textContent = "تعذر الاتصال. تأكدي من إعدادات Firebase وحاولي مجددًا.";
+  }
 });
 </script>
+
 </body>
 </html>
