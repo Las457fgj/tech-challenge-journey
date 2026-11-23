@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
@@ -7,55 +8,180 @@
 <style>
 *{box-sizing:border-box}
 body{
-  margin:0;
-  font-family:Tahoma,Arial,sans-serif;
-  background:#E9EEF3;
-  color:#25364B;
-  min-height:100vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding:20px;
+ margin:0;
+ font-family:Tahoma,Arial,sans-serif;
+ color:#25364B;
+ background:
+ radial-gradient(circle at 15% 15%,#A9C5D655,transparent 30%),
+ radial-gradient(circle at 85% 80%,#B8B3D344,transparent 32%),
+ #E9EEF3;
+ min-height:100vh;
 }
-.container{
-  max-width:650px;
-  width:100%;
-  text-align:center;
+.page{
+ max-width:1150px;
+ margin:auto;
+ padding:35px 22px 55px;
 }
-.card{
-  background:white;
-  padding:35px 25px;
-  border-radius:22px;
-  box-shadow:0 8px 30px #25364B12;
+nav{
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ gap:15px;
+ margin-bottom:65px;
 }
-h1{font-size:32px;margin-bottom:12px}
-p{color:#647D96;line-height:1.9}
-.buttons{display:grid;gap:14px;margin-top:28px}
-a{
-  display:block;
-  text-decoration:none;
-  padding:16px;
-  border-radius:13px;
-  font-size:18px;
-  font-weight:bold;
+.logo{font-size:19px;font-weight:bold}
+.logo span{color:#647D96}
+nav a{
+ text-decoration:none;
+ color:#425C75;
+ font-size:14px;
 }
-.player{background:#647D96;color:white}
-.admin{background:#D3E3E8;color:#25364B}
-.small{font-size:13px;margin-top:25px}
+.hero{
+ text-align:center;
+ max-width:800px;
+ margin:0 auto 55px;
+}
+.tag{
+ display:inline-block;
+ padding:9px 18px;
+ border:1px solid #A9C5D6;
+ border-radius:30px;
+ color:#647D96;
+ background:#ffffff90;
+ font-size:13px;
+}
+h1{
+ font-size:clamp(36px,7vw,65px);
+ margin:24px 0 15px;
+ line-height:1.35;
+ letter-spacing:-1px;
+}
+h1 span{color:#647D96}
+.hero p{
+ color:#647D96;
+ font-size:17px;
+ line-height:2;
+ margin:0 auto;
+}
+.actions{
+ display:flex;
+ justify-content:center;
+ flex-wrap:wrap;
+ gap:13px;
+ margin-top:30px;
+}
+.btn{
+ display:inline-block;
+ padding:15px 30px;
+ border-radius:13px;
+ text-decoration:none;
+ font-weight:bold;
+ transition:.2s;
+}
+.btn:hover{transform:translateY(-3px)}
+.primary{background:#25364B;color:white}
+.secondary{background:white;color:#425C75;border:1px solid #D3E3E8}
+.section-title{text-align:center;margin-bottom:25px}
+.section-title h2{font-size:25px;margin-bottom:8px}
+.section-title p{color:#647D96;font-size:14px}
+.stations{
+ display:grid;
+ grid-template-columns:repeat(4,1fr);
+ gap:15px;
+}
+.station{
+ background:#ffffffc9;
+ border:1px solid #ffffff;
+ border-radius:19px;
+ padding:22px 17px;
+ box-shadow:0 8px 25px #25364B0b;
+ text-align:center;
+}
+.icon{
+ width:55px;height:55px;
+ margin:0 auto 15px;
+ display:grid;place-items:center;
+ border-radius:16px;
+ background:#D3E3E8;
+ font-size:27px;
+}
+.number{color:#8A9CAD;font-size:12px}
+.station h3{font-size:16px;margin:10px 0}
+.station p{font-size:13px;color:#647D96;line-height:1.8;margin:0}
+footer{
+ text-align:center;
+ margin-top:55px;
+ color:#8A9CAD;
+ font-size:12px;
+}
+@media(max-width:750px){
+ .stations{grid-template-columns:repeat(2,1fr)}
+ nav{margin-bottom:45px}
+}
+@media(max-width:430px){
+ .stations{grid-template-columns:1fr}
+ .page{padding:25px 16px}
+ .hero p{font-size:15px}
+}
 </style>
 </head>
 <body>
-<div class="container">
-<div class="card">
-<h1>رحلة التحدي التقني</h1>
-<p>رحلة من الإبداع والتفكير والتكنولوجيا</p>
-<p>أهلًا بكم في عالم التحديات التقنية!<br>اختاروا الصفحة المناسبة للمتابعة.</p>
-<div class="buttons">
-<a class="player" href="player.html">دخول الفرق المشاركة</a>
-<a class="admin" href="admin.html">لوحة تحكم المعلمة</a>
-</div>
-<p class="small">رحلة التحدي التقني · 2026</p>
-</div>
+<div class="page">
+<nav>
+ <div class="logo">◈ <span>TECH</span> JOURNEY</div>
+ <a href="admin.html">لوحة المعلمة ↗</a>
+</nav>
+
+<main>
+<section class="hero">
+ <div class="tag">✦ تجربة تعليمية تفاعلية</div>
+ <h1>رحلة التحدي <span>التقني</span></h1>
+ <p>
+ رحلة تجمع الإبداع والتفكير والذكاء التقني.
+ <br>
+ استعدوا لاكتشاف مهاراتكم وخوض أربعة تحديات نحو المستقبل.
+ </p>
+ <div class="actions">
+  <a class="btn primary" href="player.html">دخول الفرق المشاركة ←</a>
+  <a class="btn secondary" href="admin.html">لوحة تحكم المعلمة</a>
+ </div>
+</section>
+
+<section>
+ <div class="section-title">
+  <h2>محطات الرحلة</h2>
+  <p>أربع محطات، وتجارب مختلفة في عالم التكنولوجيا</p>
+ </div>
+ <div class="stations">
+  <article class="station">
+   <div class="icon">🛡️</div>
+   <div class="number">المحطة 01</div>
+   <h3>حماة العالم الرقمي</h3>
+   <p>اكتشفوا أسرار الأمن والسلامة الرقمية.</p>
+  </article>
+  <article class="station">
+   <div class="icon">✧</div>
+   <div class="number">المحطة 02</div>
+   <h3>مهندسو الأوامر الذكية</h3>
+   <p>حوّلوا أفكاركم إلى أوامر إبداعية للذكاء الاصطناعي.</p>
+  </article>
+  <article class="station">
+   <div class="icon">🧩</div>
+   <div class="number">المحطة 03</div>
+   <h3>محققو سكراتش</h3>
+   <p>حلّلوا الأوامر واكتشفوا الأخطاء البرمجية.</p>
+  </article>
+  <article class="station">
+   <div class="icon">🚀</div>
+   <div class="number">المحطة 04</div>
+   <h3>خبراء المستقبل</h3>
+   <p>اختبروا معرفتكم بأحدث التقنيات.</p>
+  </article>
+ </div>
+</section>
+</main>
+
+<footer>رحلة التحدي التقني · 2026</footer>
 </div>
 </body>
 </html>
