@@ -1,0 +1,127 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>لوحة المعلمة | رحلة التحدي التقني</title>
+<style>
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:Tahoma,Arial,sans-serif;
+  background:#E9EEF3;
+  color:#25364B;
+  padding:20px;
+}
+.container{max-width:950px;margin:auto}
+header{
+  background:#25364B;
+  color:white;
+  padding:25px;
+  border-radius:20px;
+  margin-bottom:20px;
+}
+header h1{margin:0 0 10px}
+header p{color:#D3E3E8;margin:0}
+.card{
+  background:white;
+  border-radius:18px;
+  padding:20px;
+  margin-bottom:16px;
+  box-shadow:0 4px 15px #25364B10;
+}
+h2{margin-top:0;color:#425C75}
+button{
+  border:0;
+  border-radius:12px;
+  padding:13px 18px;
+  font-size:16px;
+  cursor:pointer;
+  margin:5px;
+}
+.primary{background:#647D96;color:white}
+.secondary{background:#D3E3E8;color:#25364B}
+.danger{background:#B8B3D3;color:#25364B}
+input{
+  width:100%;
+  padding:13px;
+  border:1px solid #D3E3E8;
+  border-radius:10px;
+  margin:8px 0;
+  font-size:16px;
+}
+.stat{
+  display:inline-block;
+  background:#E9EEF3;
+  border-radius:12px;
+  padding:15px;
+  margin:5px;
+  min-width:120px;
+}
+.stat strong{display:block;font-size:24px;margin-top:5px}
+#message{color:#647D96;font-weight:bold}
+</style>
+</head>
+<body>
+<div class="container">
+
+<header>
+<h1>رحلة التحدي التقني</h1>
+<p>لوحة تحكم المعلمة · رحلة من الإبداع والتكنولوجيا</p>
+</header>
+
+<div class="card">
+<h2>إنشاء لعبة جديدة</h2>
+<p>أنشئي رحلة تحدٍ جديدة وابدئي استقبال الفرق.</p>
+<button class="primary" onclick="createGame()">إنشاء لعبة جديدة</button>
+<div class="stat">رمز اللعبة<strong id="gameCode">------</strong></div>
+<div class="stat">عدد الفرق<strong id="teamCount">0</strong></div>
+<p id="message">اللعبة غير منشأة بعد</p>
+</div>
+
+<div class="card">
+<h2>التحكم باللعبة</h2>
+<button class="primary" onclick="startGame()">بدء اللعبة لجميع الفرق</button>
+<button class="secondary" onclick="pauseGame()">إيقاف مؤقت</button>
+<button class="secondary" onclick="resumeGame()">استئناف اللعبة</button>
+</div>
+
+<div class="card">
+<h2>المحطات</h2>
+<div class="stat">1<strong>حماة العالم الرقمي</strong></div>
+<div class="stat">2<strong>مهندسو الأوامر الذكية</strong></div>
+<div class="stat">3<strong>محققو سكراتش</strong></div>
+<div class="stat">4<strong>خبراء المستقبل</strong></div>
+</div>
+
+<div class="card">
+<h2>الفرق المشاركة</h2>
+<div id="teams">بانتظار انضمام الفرق...</div>
+</div>
+
+<div class="card">
+<h2>النتائج النهائية</h2>
+<div id="results">ستظهر النتائج هنا بعد انتهاء التحدي.</div>
+</div>
+
+</div>
+
+<script>
+function createGame(){
+  const code = "TECH" + Math.floor(1000 + Math.random()*9000);
+  document.getElementById("gameCode").textContent=code;
+  document.getElementById("message").textContent="تم إنشاء اللعبة بنجاح (نسخة تجريبية)";
+}
+function startGame(){
+  document.getElementById("message").textContent="تم بدء اللعبة (نسخة تجريبية)";
+}
+function pauseGame(){
+  document.getElementById("message").textContent="تم إيقاف اللعبة مؤقتًا";
+}
+function resumeGame(){
+  document.getElementById("message").textContent="تم استئناف اللعبة";
+}
+</script>
+</body>
+</html>
