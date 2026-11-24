@@ -228,7 +228,7 @@ async function createGame(){
   msg.textContent="تم إنشاء اللعبة.";
   openGame(code);
  }catch(e){
-  msg.textContent="لم يتم إنشاء اللعبة. قد تحتاج قاعدة البيانات إلى ضبط الصلاحيات أولاً.";
+  msg.textContent="لم يتم إنشاء اللعبة: "+e.code+" | "+e.message;
  }
 }
 
@@ -242,7 +242,7 @@ async function loadLatestGame(){
   if(codes.length)openGame(codes[0]);
  }catch(e){
   document.getElementById("loginMessage").textContent=
-   "تم تسجيل الدخول، لكن تعذر قراءة بيانات اللعبة. راجعي صلاحيات قاعدة البيانات.";
+   "تعذر قراءة بيانات اللعبة: "+e.code;
  }
 }
 
@@ -287,11 +287,17 @@ function statusLabel(status){
 async function updateStatus(status,extra={}){
  if(!currentCode){alert("أنشئي لعبة أولاً.");return;}
  try{
-  await db.ref("games/"+currentCode).update({status,...extra});
+  const user=auth.currentUser;
+  if(!user){alert("سجلي الدخول مرة ثانية.");return;}
+  await user.getIdToken(true);
+  const ref=db.ref("games/"+currentCode);
+  await ref.update({status,...extra});
+  alert("تم تحديث حالة اللعبة بنجاح!");
  }catch(e){
-  alert("خطأ Firebase: " + e.code + " | " + e.message);
+  alert("خطأ Firebase: "+e.code+" | "+e.message);
  }
 }
+
 function startGame(){
  updateStatus("active",{startedAt:Date.now(),pausedAt:null});
 }
@@ -389,7 +395,7 @@ async function saveGrade(uid,index,value){
    points:points
   });
  }catch(e){
-  alert("تعذر حفظ الدرجة. تحققي من صلاحيات قاعدة البيانات.");
+  alert("تعذر حفظ الدرجة: "+e.code+" | "+e.message);
  }
 }
 </script>
