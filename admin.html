@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
@@ -7,119 +8,389 @@
 <style>
 *{box-sizing:border-box}
 body{
-  margin:0;
-  font-family:Tahoma,Arial,sans-serif;
-  background:#E9EEF3;
-  color:#25364B;
-  padding:20px;
+ margin:0;font-family:Tahoma,Arial,sans-serif;
+ background:linear-gradient(135deg,#E9EEF3,#D3E3E8,#F4F0FA);
+ color:#25364B;min-height:100vh
 }
-.container{max-width:950px;margin:auto}
-header{
-  background:#25364B;
-  color:white;
-  padding:25px;
-  border-radius:20px;
-  margin-bottom:20px;
-}
-header h1{margin:0 0 10px}
-header p{color:#D3E3E8;margin:0}
+header{text-align:center;padding:28px 15px 15px}
+.school{color:#647D96;font-weight:bold;font-size:15px}
+.team{color:#8297AA;font-size:14px;margin-top:8px}
+h1{font-size:28px;margin:15px 0 8px}
+.subtitle{color:#647D96;font-size:14px}
+.container{max-width:1050px;margin:auto;padding:15px}
 .card{
-  background:white;
-  border-radius:18px;
-  padding:20px;
-  margin-bottom:16px;
-  box-shadow:0 4px 15px #25364B10;
+ background:#ffffffdf;border:1px solid white;border-radius:20px;
+ padding:22px;margin:16px 0;box-shadow:0 8px 25px #52677b18
 }
-h2{margin-top:0;color:#425C75}
+input,button,textarea{font-family:inherit}
+input,textarea{
+ width:100%;padding:13px;border:1px solid #cbd8e2;
+ border-radius:11px;font-size:15px;margin:8px 0
+}
 button{
-  border:0;
-  border-radius:12px;
-  padding:13px 18px;
-  font-size:16px;
-  cursor:pointer;
-  margin:5px;
+ border:0;border-radius:11px;padding:12px 18px;
+ background:#647D96;color:white;font-size:14px;
+ cursor:pointer;margin:5px
 }
-.primary{background:#647D96;color:white}
-.secondary{background:#D3E3E8;color:#25364B}
-.danger{background:#B8B3D3;color:#25364B}
-input{
-  width:100%;
-  padding:13px;
-  border:1px solid #D3E3E8;
-  border-radius:10px;
-  margin:8px 0;
-  font-size:16px;
+button:hover{background:#4d657e}
+button:disabled{opacity:.5;cursor:not-allowed}
+.primary{background:#647D96}
+.green{background:#789B91}
+.orange{background:#B99B75}
+.red{background:#A8757D}
+.hidden{display:none!important}
+.center{text-align:center}
+.muted{color:#71869a;font-size:13px;line-height:1.8}
+.code{
+ display:inline-block;background:#E9EEF3;padding:12px 25px;
+ border-radius:12px;font-size:25px;font-weight:bold;
+ letter-spacing:5px;color:#344B63;margin:10px
 }
-.stat{
-  display:inline-block;
-  background:#E9EEF3;
-  border-radius:12px;
-  padding:15px;
-  margin:5px;
-  min-width:120px;
+.status{
+ display:inline-block;padding:7px 13px;border-radius:20px;
+ background:#E9EEF3;color:#647D96;font-size:13px
 }
-.stat strong{display:block;font-size:24px;margin-top:5px}
-#message{color:#647D96;font-weight:bold}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px}
+.stat{background:#F1F5F8;padding:17px;border-radius:14px;text-align:center}
+.stat strong{display:block;font-size:25px;margin-top:7px}
+.teamCard{border:1px solid #e0e8ee;border-radius:15px;padding:16px;margin:12px 0;background:#fff}
+.teamCard h3{margin:0 0 8px}
+.promptBox{background:#F1F5F8;padding:13px;border-radius:12px;margin:10px 0}
+.promptBox textarea{min-height:85px}
+label{font-size:14px;color:#52677b}
+hr{border:0;border-top:1px solid #e5ebf0;margin:17px 0}
+footer{text-align:center;padding:25px;color:#8295a7;font-size:12px}
 </style>
 </head>
 <body>
-<div class="container">
 
 <header>
-<h1>رحلة التحدي التقني</h1>
-<p>لوحة تحكم المعلمة · رحلة من الإبداع والتكنولوجيا</p>
+ <div class="school">مدرسة سترة الثانوية للبنات</div>
+ <div class="team">فريق التمكين الرقمي</div>
+ <h1>لوحة المعلمة</h1>
+ <div class="subtitle">إدارة ومتابعة رحلة التحدي التقني</div>
 </header>
 
-<div class="card">
-<h2>إنشاء لعبة جديدة</h2>
-<p>أنشئي رحلة تحدٍ جديدة وابدئي استقبال الفرق.</p>
-<button class="primary" onclick="createGame()">إنشاء لعبة جديدة</button>
-<div class="stat">رمز اللعبة<strong id="gameCode">------</strong></div>
-<div class="stat">عدد الفرق<strong id="teamCount">0</strong></div>
-<p id="message">اللعبة غير منشأة بعد</p>
+<div class="container">
+
+<section id="loginCard" class="card">
+ <h2 class="center">تسجيل دخول المعلمة</h2>
+ <p class="muted center">يرجى تسجيل الدخول للانتقال إلى لوحة إدارة التحدي.</p>
+ <label>البريد الإلكتروني</label>
+ <input id="email" type="email" placeholder="البريد الإلكتروني">
+ <label>كلمة المرور</label>
+ <input id="password" type="password" placeholder="كلمة المرور">
+ <button class="primary" style="width:100%" onclick="login()">تسجيل الدخول</button>
+ <p id="loginMessage" class="muted center"></p>
+</section>
+
+<section id="dashboard" class="hidden">
+
+ <div class="card">
+  <div class="grid">
+   <div>
+    <h2>مرحباً بكِ في لوحة المعلمة</h2>
+    <p class="muted">أنشئي لعبة جديدة أو تابعي الفرق المشاركة.</p>
+   </div>
+   <div class="center">
+    <span class="status" id="gameStatus">لا توجد لعبة نشطة</span>
+    <br>
+    <button class="red" onclick="logout()">تسجيل الخروج</button>
+   </div>
+  </div>
+ </div>
+
+ <div class="card">
+  <h2>إنشاء تحدٍ جديد</h2>
+  <p class="muted">سيتم إنشاء رمز خاص تستطيع الطالبات استخدامه للانضمام.</p>
+  <button class="primary" onclick="createGame()">＋ إنشاء لعبة جديدة</button>
+  <div id="newGameArea" class="center hidden">
+   <p>رمز اللعبة:</p>
+   <div class="code" id="gameCode"></div>
+   <p class="muted">شاركي هذا الرمز مع الفرق المشاركة.</p>
+  </div>
+  <p id="createMessage" class="muted"></p>
+ </div>
+
+ <div id="controlCard" class="card hidden">
+  <h2>إدارة التحدي</h2>
+  <p>رمز اللعبة: <strong id="activeCode"></strong></p>
+  <div class="grid">
+   <div class="stat">
+    حالة اللعبة
+    <strong id="statusText">انتظار</strong>
+   </div>
+   <div class="stat">
+    عدد الفرق
+    <strong id="teamCount">0</strong>
+   </div>
+   <div class="stat">
+    الفرق المكتملة
+    <strong id="finishedCount">0</strong>
+   </div>
+  </div>
+  <div class="center" style="margin-top:15px">
+   <button class="green" onclick="startGame()">▶ بدء التحدي</button>
+   <button class="orange" onclick="pauseGame()">Ⅱ إيقاف مؤقت</button>
+   <button class="primary" onclick="resumeGame()">▶ استئناف</button>
+   <button class="red" onclick="endGame()">إنهاء اللعبة</button>
+  </div>
+ </div>
+
+ <div id="teamsCard" class="card hidden">
+  <h2>الفرق المشاركة</h2>
+  <p class="muted">تحديث بيانات الفرق يتم تلقائياً عند توفر الاتصال.</p>
+  <div id="teamsList"></div>
+ </div>
+
+</section>
 </div>
 
-<div class="card">
-<h2>التحكم باللعبة</h2>
-<button class="primary" onclick="startGame()">بدء اللعبة لجميع الفرق</button>
-<button class="secondary" onclick="pauseGame()">إيقاف مؤقت</button>
-<button class="secondary" onclick="resumeGame()">استئناف اللعبة</button>
-</div>
+<footer>رحلة التحدي التقني | لوحة المعلمة</footer>
 
-<div class="card">
-<h2>المحطات</h2>
-<div class="stat">1<strong>حماة العالم الرقمي</strong></div>
-<div class="stat">2<strong>مهندسو الأوامر الذكية</strong></div>
-<div class="stat">3<strong>محققو سكراتش</strong></div>
-<div class="stat">4<strong>خبراء المستقبل</strong></div>
-</div>
-
-<div class="card">
-<h2>الفرق المشاركة</h2>
-<div id="teams">بانتظار انضمام الفرق...</div>
-</div>
-
-<div class="card">
-<h2>النتائج النهائية</h2>
-<div id="results">ستظهر النتائج هنا بعد انتهاء التحدي.</div>
-</div>
-
-</div>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-database-compat.js"></script>
 
 <script>
-function createGame(){
-  const code = "TECH" + Math.floor(1000 + Math.random()*9000);
+const firebaseConfig = {
+ apiKey: "AIzaSyDo7I5NbIDsDYdmxEEpclYFusm_B--jPvM",
+ authDomain: "tech-challenge-journe.firebaseapp.com",
+ databaseURL: "https://tech-challenge-journe-default-rtdb.asia-southeast1.firebasedatabase.app",
+ projectId: "tech-challenge-journe",
+ storageBucket: "tech-challenge-journe.firebasestorage.app",
+ messagingSenderId: "882079741988",
+ appId: "1:882079741988:web:ed93a3bc88aee9b90a40b1",
+ measurementId: "G-J01MBQ56D6"
+};
+
+firebase.initializeApp(firebaseConfig);
+const auth=firebase.auth();
+const db=firebase.database();
+
+let currentCode=null;
+let teamsListener=null;
+let gameListener=null;
+let teamsData={};
+
+async function login(){
+ const email=document.getElementById("email").value.trim();
+ const password=document.getElementById("password").value;
+ const msg=document.getElementById("loginMessage");
+ if(!email||!password){msg.textContent="أدخلي البريد الإلكتروني وكلمة المرور.";return;}
+ msg.textContent="جارٍ تسجيل الدخول...";
+ try{
+  await auth.signInWithEmailAndPassword(email,password);
+ }catch(e){
+  msg.textContent="تعذر تسجيل الدخول. تأكدي من البريد وكلمة المرور.";
+ }
+}
+
+auth.onAuthStateChanged(user=>{
+ if(user){
+  document.getElementById("loginCard").classList.add("hidden");
+  document.getElementById("dashboard").classList.remove("hidden");
+  loadLatestGame();
+ }else{
+  document.getElementById("loginCard").classList.remove("hidden");
+  document.getElementById("dashboard").classList.add("hidden");
+  stopListeners();
+ }
+});
+
+function logout(){auth.signOut();}
+
+function randomCode(){
+ return String(Math.floor(100000+Math.random()*900000));
+}
+
+async function createGame(){
+ const msg=document.getElementById("createMessage");
+ msg.textContent="جارٍ إنشاء اللعبة...";
+ try{
+  let code=randomCode();
+  let ref=db.ref("games/"+code);
+  let exists=await ref.get();
+  while(exists.exists()){
+   code=randomCode();
+   ref=db.ref("games/"+code);
+   exists=await ref.get();
+  }
+  await ref.set({
+   status:"waiting",
+   createdAt:Date.now(),
+   createdBy:auth.currentUser.uid,
+   startedAt:null,
+   pausedAt:null
+  });
+  document.getElementById("newGameArea").classList.remove("hidden");
   document.getElementById("gameCode").textContent=code;
-  document.getElementById("message").textContent="تم إنشاء اللعبة بنجاح (نسخة تجريبية)";
+  msg.textContent="تم إنشاء اللعبة.";
+  openGame(code);
+ }catch(e){
+  msg.textContent="لم يتم إنشاء اللعبة. قد تحتاج قاعدة البيانات إلى ضبط الصلاحيات أولاً.";
+ }
+}
+
+async function loadLatestGame(){
+ try{
+  const snap=await db.ref("games").get();
+  if(!snap.exists())return;
+  const games=snap.val();
+  const codes=Object.keys(games).sort((a,b)=>
+   (games[b].createdAt||0)-(games[a].createdAt||0));
+  if(codes.length)openGame(codes[0]);
+ }catch(e){
+  document.getElementById("loginMessage").textContent=
+   "تم تسجيل الدخول، لكن تعذر قراءة بيانات اللعبة. راجعي صلاحيات قاعدة البيانات.";
+ }
+}
+
+function stopListeners(){
+ if(currentCode){
+  if(teamsListener)db.ref("teams/"+currentCode).off("value",teamsListener);
+  if(gameListener)db.ref("games/"+currentCode).off("value",gameListener);
+ }
+ teamsListener=null;gameListener=null;
+}
+
+function openGame(code){
+ stopListeners();
+ currentCode=code;
+ document.getElementById("controlCard").classList.remove("hidden");
+ document.getElementById("teamsCard").classList.remove("hidden");
+ document.getElementById("activeCode").textContent=code;
+ gameListener=snap=>{
+  if(!snap.exists())return;
+  const game=snap.val();
+  const status=game.status||"waiting";
+  document.getElementById("gameStatus").textContent=statusLabel(status);
+  document.getElementById("statusText").textContent=statusLabel(status);
+ };
+ db.ref("games/"+code).on("value",gameListener);
+ teamsListener=snap=>{
+  teamsData=snap.val()||{};
+  renderTeams();
+ };
+ db.ref("teams/"+code).on("value",teamsListener);
+}
+
+function statusLabel(status){
+ return {
+  waiting:"بانتظار البداية",
+  active:"التحدي جارٍ",
+  paused:"متوقف مؤقتاً",
+  ended:"انتهت اللعبة"
+ }[status]||status;
+}
+
+async function updateStatus(status,extra={}){
+ if(!currentCode){alert("أنشئي لعبة أولاً.");return;}
+ try{
+  await db.ref("games/"+currentCode).update({status,...extra});
+ }catch(e){
+  alert("تعذر تحديث اللعبة. تحققي من صلاحيات قاعدة البيانات.");
+ }
 }
 function startGame(){
-  document.getElementById("message").textContent="تم بدء اللعبة (نسخة تجريبية)";
+ updateStatus("active",{startedAt:Date.now(),pausedAt:null});
 }
 function pauseGame(){
-  document.getElementById("message").textContent="تم إيقاف اللعبة مؤقتًا";
+ updateStatus("paused",{pausedAt:Date.now()});
 }
 function resumeGame(){
-  document.getElementById("message").textContent="تم استئناف اللعبة";
+ updateStatus("active",{pausedAt:null});
+}
+function endGame(){
+ if(confirm("هل أنتِ متأكدة من إنهاء اللعبة؟")){
+  updateStatus("ended",{endedAt:Date.now()});
+ }
+}
+
+function renderTeams(){
+ const list=document.getElementById("teamsList");
+ const teams=Object.entries(teamsData);
+ document.getElementById("teamCount").textContent=teams.length;
+ document.getElementById("finishedCount").textContent=
+  teams.filter(([id,t])=>t.completed).length;
+ if(!teams.length){
+  list.innerHTML='<p class="muted center">لا توجد فرق مشاركة حتى الآن.</p>';
+  return;
+ }
+ teams.sort((a,b)=>(b[1].points||0)-(a[1].points||0));
+ list.innerHTML="";
+ teams.forEach(([uid,t],index)=>{
+  const card=document.createElement("div");
+  card.className="teamCard";
+  const title=document.createElement("h3");
+  title.textContent=(index+1)+". "+(t.name||"فريق");
+  const details=document.createElement("p");
+  details.className="muted";
+  details.textContent="المحطة: "+(t.completed?"مكتملة":(Number(t.station||0)+1)+" من 4")+
+   " | النقاط الحالية: "+(t.points||0)+
+   " | الحالة: "+(t.completed?"مكتمل":"يشارك الآن");
+  card.append(title,details);
+
+  const prompts=t.promptAnswers||{};
+  const grades=t.promptGrades||{};
+  const heading=document.createElement("h4");
+  heading.textContent="إجابات مهندسي الأوامر الذكية";
+  card.appendChild(heading);
+
+  for(let i=0;i<5;i++){
+   const box=document.createElement("div");
+   box.className="promptBox";
+   const p=document.createElement("p");
+   p.textContent="التحدي "+(i+1)+": "+(prompts[i]||"لم تتم الإجابة بعد");
+   box.appendChild(p);
+
+   const label=document.createElement("label");
+   label.textContent="درجة الإجابة من 0 إلى 2";
+   box.appendChild(label);
+
+   const select=document.createElement("select");
+   select.style.cssText="width:100%;padding:10px;border:1px solid #cbd8e2;border-radius:10px;font-family:inherit";
+   [0,1,2].forEach(n=>{
+    const option=document.createElement("option");
+    option.value=n;
+    option.textContent=n+" نقطة";
+    if(Number(grades[i]||0)===n)option.selected=true;
+    select.appendChild(option);
+   });
+   select.onchange=()=>saveGrade(uid,i,Number(select.value));
+   box.appendChild(select);
+   card.appendChild(box);
+  }
+
+  const total=document.createElement("p");
+  total.className="muted";
+  total.textContent="مجموع درجات الأوامر الذكية: "+
+   Object.values(grades).reduce((sum,n)=>sum+Number(n||0),0)+" / 10";
+  card.appendChild(total);
+  list.appendChild(card);
+ });
+}
+
+async function saveGrade(uid,index,value){
+ try{
+  const ref=db.ref("teams/"+currentCode+"/"+uid);
+  const snap=await ref.get();
+  if(!snap.exists())return;
+  const t=snap.val();
+  const grades=t.promptGrades||{};
+  grades[index]=value;
+  const promptPoints=Object.values(grades).reduce((sum,n)=>sum+Number(n||0),0);
+  const scores=t.scores||[0,0,0,0];
+  const points=(Number(scores[0])||0)+(Number(scores[2])||0)+
+   (Number(scores[3])||0)*2+promptPoints;
+  await ref.update({
+   promptGrades:grades,
+   promptPoints:promptPoints,
+   points:points
+  });
+ }catch(e){
+  alert("تعذر حفظ الدرجة. تحققي من صلاحيات قاعدة البيانات.");
+ }
 }
 </script>
 </body>
