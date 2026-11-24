@@ -5,238 +5,422 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>رحلة التحدي التقني</title>
+
 <style>
 *{box-sizing:border-box}
 body{
  margin:0;
- min-height:100vh;
  font-family:Tahoma,Arial,sans-serif;
+ background:linear-gradient(135deg,#E9EEF3,#D3E3E8,#F4F0FA);
  color:#25364B;
- background:
- radial-gradient(circle at 10% 15%,#A9C5D677,transparent 30%),
- radial-gradient(circle at 90% 85%,#B8B3D355,transparent 32%),
- linear-gradient(135deg,#E9EEF3,#D3E3E8,#F5F8FA);
- display:flex;
- align-items:center;
- justify-content:center;
- padding:25px;
+ min-height:100vh;
 }
-.page{
- width:100%;
- max-width:700px;
+header{
  text-align:center;
+ padding:28px 15px 15px;
 }
-.school{
- font-size:17px;
- color:#425C75;
- font-weight:bold;
- margin-bottom:12px;
-}
-.team{
- font-size:14px;
- color:#647D96;
- letter-spacing:.5px;
- margin-bottom:35px;
-}
-.symbol{
- width:75px;
- height:75px;
- border-radius:23px;
- margin:0 auto 22px;
- display:grid;
- place-items:center;
- background:linear-gradient(145deg,#647D96,#A9C5D6);
- color:white;
- font-size:35px;
- box-shadow:0 10px 25px #647D9633;
-}
-h1{
- font-size:clamp(34px,7vw,53px);
- line-height:1.5;
- margin:0 0 12px;
- color:#25364B;
-}
-h1 span{color:#647D96}
-.description{
- color:#647D96;
- font-size:16px;
- line-height:2;
- margin:0 auto 30px;
-}
+.school{font-size:15px;color:#647D96;font-weight:bold}
+.team{font-size:14px;color:#8297AA;margin-top:8px}
+h1{font-size:30px;margin:15px 0 8px;color:#344B63}
+.subtitle{color:#647D96;font-size:14px}
+.container{max-width:850px;margin:auto;padding:15px}
 .card{
- max-width:490px;
- margin:0 auto;
- padding:30px;
- background:#FFFFFFD9;
- border:1px solid white;
- border-radius:24px;
- box-shadow:0 15px 45px #25364B12;
+ background:#ffffffd9;
+ border:1px solid #ffffff;
+ border-radius:22px;
+ padding:24px;
+ margin:18px 0;
+ box-shadow:0 8px 25px #52677b18;
 }
-.card h2{
- font-size:21px;
- margin:0 0 25px;
-}
-.field{
- text-align:right;
- margin-bottom:19px;
-}
-label{
- display:block;
- margin-bottom:9px;
- font-size:14px;
- color:#425C75;
-}
-input{
- width:100%;
- padding:16px;
- border:1px solid #C5D7E1;
- border-radius:12px;
- background:#F7FAFC;
+input,button,textarea{
  font-family:inherit;
- font-size:16px;
- color:#25364B;
- outline:none;
 }
-input:focus{
- border-color:#647D96;
- box-shadow:0 0 0 3px #A9C5D633;
+input,textarea{
+ width:100%;padding:14px;border:1px solid #cbd8e2;
+ border-radius:12px;font-size:15px;margin:8px 0;
+ background:#fff;color:#25364B;
 }
-input::placeholder{color:#9AAEBD}
 button{
- width:100%;
- padding:17px;
- border:0;
- border-radius:13px;
- background:linear-gradient(100deg,#647D96,#8EACC0);
- color:white;
- font-family:inherit;
- font-size:17px;
- font-weight:bold;
- cursor:pointer;
- transition:.2s;
+ border:0;border-radius:12px;padding:13px 22px;
+ background:#647D96;color:white;font-size:15px;
+ cursor:pointer;margin-top:10px;
 }
-button:hover{transform:translateY(-2px)}
-#message{
- color:#647D96;
- font-size:14px;
- line-height:1.8;
- min-height:24px;
- margin:15px 0 0;
+button:hover{background:#4d657e}
+button:disabled{opacity:.5;cursor:not-allowed}
+.primary{background:#647D96;width:100%}
+.hidden{display:none!important}
+.center{text-align:center}
+.muted{color:#71869a;font-size:14px;line-height:1.8}
+.code{
+ display:inline-block;background:#E9EEF3;
+ padding:9px 18px;border-radius:10px;
+ font-weight:bold;letter-spacing:3px;color:#344B63;
 }
-.note{
- color:#8A9CAD;
- font-size:12px;
- line-height:1.8;
- margin-top:19px;
+.progress{
+ height:9px;background:#e3eaf0;border-radius:20px;overflow:hidden;
+ margin:15px 0;
 }
-footer{
- margin-top:30px;
- color:#8A9CAD;
- font-size:12px;
+.progress div{height:100%;background:#9bb9c9;width:0%;transition:.3s}
+.station{
+ padding:15px;border-radius:15px;background:#F1F5F8;
+ margin:10px 0;border:1px solid #e2eaf0;
 }
-@media(max-width:480px){
- body{padding:22px 15px}
- .card{padding:25px 20px}
- .school{font-size:15px}
- .description{font-size:14px}
+.station h3{margin:0 0 7px;font-size:17px}
+.option{
+ display:block;text-align:right;width:100%;
+ background:#F1F5F8;color:#344B63;
+ border:1px solid #dce5ec;margin:9px 0;
+}
+.option.selected{background:#D3E3E8;border:2px solid #829FB3}
+.question{font-size:18px;line-height:1.8;font-weight:bold}
+.timer{font-size:25px;color:#647D96;font-weight:bold}
+.notice{
+ background:#edf3f7;padding:14px;border-radius:12px;
+ color:#526b80;line-height:1.8;margin:12px 0;
+}
+footer{text-align:center;color:#8295a7;font-size:12px;padding:25px}
+@media(max-width:600px){
+ h1{font-size:24px}.card{padding:18px}
 }
 </style>
 </head>
+
 <body>
-<main class="page">
 
-<div class="school">مدرسة سترة الثانوية للبنات</div>
-<div class="team">فريق التمكين الرقمي</div>
+<header>
+ <div class="school">مدرسة سترة الثانوية للبنات</div>
+ <div class="team">فريق التمكين الرقمي</div>
+ <h1>رحلة التحدي التقني</h1>
+ <div class="subtitle">رحلة معرفية لاكتشاف مهارات المستقبل</div>
+</header>
 
-<div class="symbol">✧</div>
+<div class="container">
 
-<h1>رحلة التحدي <span>التقني</span></h1>
-
-<p class="description">
-رحلة من الإبداع والتفكير والتكنولوجيا
-<br>
-استعدوا لاكتشاف مهاراتكم وخوض أربعة تحديات نحو المستقبل.
-</p>
-
-<section class="card">
-<h2>بوابة دخول الفرق</h2>
-
-<form id="joinForm">
-<div class="field">
-<label for="teamName">اسم الفريق</label>
-<input id="teamName" type="text"
-placeholder="اكتبوا اسم فريقكم" required>
-</div>
-
-<div class="field">
-<label for="gameCode">رمز اللعبة</label>
-<input id="gameCode" type="text"
-placeholder="أدخلوا رمز اللعبة" required>
-</div>
-
-<button type="submit">ابدؤوا الرحلة ←</button>
-</form>
-
-<p id="message"></p>
-
-<div class="note">
-بعد الانضمام، انتظروا إعلان المعلمة لبدء التحدي.
-</div>
+<section id="joinScreen" class="card">
+ <h2 class="center">مرحباً بكِ في رحلة التحدي! ✨</h2>
+ <p class="muted center">استعدي لخوض أربع محطات مليئة بالتحديات التقنية والإبداعية.</p>
+ <label>اسم الفريق</label>
+ <input id="teamName" placeholder="اكتبي اسم فريقك">
+ <label>رمز اللعبة</label>
+ <input id="gameCode" placeholder="أدخلي الرمز الذي أعطتكِ المعلمة">
+ <button class="primary" onclick="joinGame()">انضمي إلى التحدي</button>
+ <p id="joinMessage" class="muted center"></p>
 </section>
 
-<footer>
-رحلة التحدي التقني · 2026
-</footer>
+<section id="waitingScreen" class="card center hidden">
+ <h2>أنتِ الآن في منطقة الانتظار 🌷</h2>
+ <p class="muted">تم تسجيل فريقك بنجاح. انتظري حتى تبدأ المعلمة التحدي.</p>
+ <div class="code" id="waitingCode"></div>
+ <p id="waitingStatus" class="muted">بانتظار بداية اللعبة...</p>
+</section>
 
-</main>
+<section id="gameScreen" class="hidden">
+ <div class="card center">
+  <div id="helloTeam"></div>
+  <p class="muted">المحطة الحالية</p>
+  <h2 id="stationTitle"></h2>
+  <div class="timer" id="timer">10:00</div>
+  <div class="progress"><div id="progressBar"></div></div>
+  <p class="muted" id="questionCount"></p>
+ </div>
 
+ <div class="card" id="questionCard">
+  <div id="questionArea"></div>
+  <button class="primary" id="nextButton" onclick="nextQuestion()">التالي</button>
+ </div>
+</section>
 
-<script type="module">
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
-import {
-  getAuth,
-  signInAnonymously
-} from "https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js";
-import { getDatabase } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-database.js";
+<section id="finishedScreen" class="card center hidden">
+ <h2>أحسنتن يا بطلات! 🎉</h2>
+ <p class="muted">لقد أكملتن جميع محطات رحلة التحدي التقني.</p>
+ <h3>نتيجة فريقكن</h3>
+ <div class="code" id="finalScore">0</div>
+ <p class="muted">انتظرن إعلان النتائج من المعلمة.</p>
+</section>
 
+</div>
+
+<footer>رحلة التحدي التقني | فريق التمكين الرقمي</footer>
+
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-database-compat.js"></script>
+
+<script>
 const firebaseConfig = {
-  apiKey: "AIzaSyDo7I5NbIDsDYdmxEEpclYFusm_B--jPvM",
-  authDomain: "tech-challenge-journe.firebaseapp.com",
-  databaseURL: "https://tech-challenge-journe-default-rtdb.asia-southeast1.firebasedatabase.app",
-  projectId: "tech-challenge-journe",
-  storageBucket: "tech-challenge-journe.firebasestorage.app",
-  messagingSenderId: "882079741988",
-  appId: "1:882079741988:web:ed93a3bc88aee9b90a40b1",
-  measurementId: "G-J01MBQ56D6"
+ apiKey: "AIzaSyDo7I5NbIDsDYdmxEEpclYFusm_B--jPvM",
+ authDomain: "tech-challenge-journe.firebaseapp.com",
+ databaseURL: "https://tech-challenge-journe-default-rtdb.asia-southeast1.firebasedatabase.app",
+ projectId: "tech-challenge-journe",
+ storageBucket: "tech-challenge-journe.firebasestorage.app",
+ messagingSenderId: "882079741988",
+ appId: "1:882079741988:web:ed93a3bc88aee9b90a40b1",
+ measurementId: "G-J01MBQ56D6"
 };
 
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
-const database = getDatabase(app);
+firebase.initializeApp(firebaseConfig);
+const auth=firebase.auth();
+const db=firebase.database();
 
-document.getElementById("joinForm").addEventListener("submit", async function(e) {
-  e.preventDefault();
+let uid=null,code="",teamName="",teamData={};
+let gameData={},stationIndex=0,questionIndex=0;
+let answers={},scores=[0,0,0,0],promptAnswers={};
+let timerInterval=null,finishing=false;
 
-  const team = document.getElementById("teamName").value.trim();
-  const code = document.getElementById("gameCode").value.trim();
-  const message = document.getElementById("message");
+const stations=[
+{
+ title:"حماة العالم الرقمي",
+ subtitle:"اختبري معرفتكِ بالأمان الرقمي",
+ questions:[
+ ["ما التصرف الصحيح عند استلام رابط مجهول؟",["فتحه مباشرة","التحقق من مصدره أولاً","إرساله للجميع","إدخال بياناتي فيه"],1],
+ ["أي كلمة مرور تعد أقوى؟",["123456","password","T7#mQ9!p","اسم المستخدم"],2],
+ ["ما المقصود بالتصيد الإلكتروني؟",["سرقة البيانات بالخداع","تحديث الجهاز","حفظ الملفات","إنشاء عرض"],0],
+ ["إذا طلب شخص غريب كلمة مروركِ، ماذا تفعلين؟",["أعطيه إياها","أتجاهله وأبلغ شخصاً موثوقاً","أرسلها لصديقتي","أنشرها"],1],
+ ["ما فائدة التحقق بخطوتين؟",["تسريع الإنترنت","إضافة طبقة حماية","زيادة مساحة الجهاز","حذف الحساب"],1],
+ ["أي معلومة لا ينبغي نشرها علناً؟",["معلومة عامة","عنوان المنزل","اسم مادة دراسية","هواية مفضلة"],1],
+ ["ماذا تفعلين عند استخدام شبكة واي فاي عامة؟",["أدخل بياناتي البنكية","أتجنب المعاملات الحساسة","أشارك كلمة مروري","أحمل أي ملف"],1],
+ ["ما التصرف المناسب عند التعرض للتنمر الإلكتروني؟",["الرد بالإساءة","حفظ الدليل والإبلاغ","نشر المشكلة للجميع","حذف كل شيء دون إبلاغ"],1],
+ ["كيف نتحقق من موثوقية الخبر؟",["نقرأ العنوان فقط","نتأكد من مصدر موثوق","نعيد نشره فوراً","نصدق كل ما يصلنا"],1],
+ ["لماذا نحدث البرامج باستمرار؟",["لإضافة مخاطر","لسد الثغرات وتحسين الحماية","لتعطيل الجهاز","لإبطاء الإنترنت"],1]
+ ]
+},
+{
+ title:"مهندسو الأوامر الذكية",
+ subtitle:"أطلقي العنان لإبداعكِ في كتابة الأوامر",
+ prompts:[
+ "اكتبي أمراً ذكياً يجعل الذكاء الاصطناعي يصمم ملصقاً توعوياً عن الأمن السيبراني.",
+ "اكتبي أمراً يطلب من الذكاء الاصطناعي شرح مفهوم البرمجة لطالبة بطريقة مبسطة.",
+ "اكتبي أمراً لإنشاء فكرة لعبة تعليمية عن حماية البيئة.",
+ "اكتبي أمراً يطلب إعداد خطة لمشروع مدرسي باستخدام التقنية.",
+ "اكتبي أمراً يجعل الذكاء الاصطناعي يقترح قصة قصيرة عن مستقبل التكنولوجيا."
+ ]
+},
+{
+ title:"محققو سكراتش",
+ subtitle:"اكتشفي أسرار البرمجة والتفكير المنطقي",
+ questions:[
+ ["ما وظيفة كتلة (عند النقر على العلم الأخضر)؟",["بدء تنفيذ المشروع","إيقاف الصوت","حذف الكائن","تغيير الخلفية"],0],
+ ["ماذا تمثل الشخصية في سكراتش؟",["المنصة","الكائن","الملف","الصوت"],1],
+ ["أي كتلة تستخدم لتكرار الأوامر؟",["تحرك","انتظر","كرر","قل"],2],
+ ["ما وظيفة كتلة (إذا)؟",["اتخاذ قرار حسب شرط","تغيير الاسم","حذف المشروع","إيقاف الجهاز"],0],
+ ["ماذا يحدث عند استخدام كتلة (قل)؟",["يتحرك الكائن","تظهر فقاعة كلام","يتغير الحجم","يتوقف المشروع"],1],
+ ["ما المقصود بالخوارزمية؟",["خطوات مرتبة لحل مشكلة","صورة متحركة","نوع شاشة","ملف صوتي"],0]
+ ]
+},
+{
+ title:"خبراء المستقبل",
+ subtitle:"تحديات متقدمة في عالم التقنية",
+ questions:[
+ ["ما المقصود بالذكاء الاصطناعي؟",["قدرة الأنظمة على أداء مهام تتطلب ذكاءً","نوع من الطابعات","لغة واحدة فقط","شبكة كهربائية"],0],
+ ["أي مما يلي يعد مثالاً على الحوسبة السحابية؟",["حفظ الملفات عبر الإنترنت","الكتابة على الورق","إيقاف الجهاز","استخدام قلم"],0],
+ ["ما فائدة تحليل البيانات؟",["استخلاص معلومات تساعد على اتخاذ القرار","حذف جميع المعلومات","زيادة حجم الشاشة","إيقاف الإنترنت"],0],
+ ["ما المقصود بإنترنت الأشياء؟",["ربط الأجهزة بالإنترنت لتبادل البيانات","استخدام الإنترنت للكتابة فقط","شبكة اجتماعية","برنامج للرسم"],0],
+ ["أي مهارة مهمة لمستقبل التقنية؟",["التفكير النقدي وحل المشكلات","تجنب التعلم","رفض التعاون","حفظ المعلومات دون فهم"],0]
+ ]
+}
+];
 
-  if (!team || !code) {
-    message.textContent = "يرجى إدخال اسم الفريق ورمز اللعبة.";
-    return;
+function show(id){
+ ["joinScreen","waitingScreen","gameScreen","finishedScreen"].forEach(x=>
+ document.getElementById(x).classList.add("hidden"));
+ document.getElementById(id).classList.remove("hidden");
+}
+
+async function joinGame(){
+ const name=document.getElementById("teamName").value.trim();
+ const game=document.getElementById("gameCode").value.trim();
+ const msg=document.getElementById("joinMessage");
+ if(!name||!game){msg.textContent="اكتبي اسم الفريق ورمز اللعبة أولاً.";return;}
+ msg.textContent="جارٍ تسجيل الفريق...";
+ try{
+  const credential=await auth.signInAnonymously();
+  uid=credential.user.uid;code=game;teamName=name;
+  const gameSnap=await db.ref("games/"+code).get();
+  if(!gameSnap.exists()){msg.textContent="رمز اللعبة غير صحيح.";return;}
+  gameData=gameSnap.val();
+  const teamRef=db.ref("teams/"+code+"/"+uid);
+  const old=await teamRef.get();
+  if(old.exists()){
+   teamData=old.val();
+   teamName=teamData.name||name;
+  }else{
+   teamData={
+    name:name,station:0,answers:{},scores:[0,0,0,0],
+    promptAnswers:{},promptGrades:{},promptPoints:0,
+    points:0,completed:false,joinedAt:Date.now()
+   };
+   await teamRef.set(teamData);
   }
+  localStorage.setItem("techTeamCode",code);
+  localStorage.setItem("techTeamName",teamName);
+  localStorage.setItem("techTeamUid",uid);
+  watchGame();
+  watchTeam();
+ }catch(e){msg.textContent="تعذر الاتصال. تأكدي من إعدادات اللعبة والإنترنت.";}
+}
 
-  message.textContent = "جاري الاتصال...";
+function watchGame(){
+ db.ref("games/"+code).on("value",snap=>{
+  if(!snap.exists())return;
+  gameData=snap.val();
+  renderState();
+ });
+}
+function watchTeam(){
+ db.ref("teams/"+code+"/"+uid).on("value",snap=>{
+  if(!snap.exists())return;
+  teamData=snap.val();
+  answers=teamData.answers||{};
+  scores=teamData.scores||[0,0,0,0];
+  promptAnswers=teamData.promptAnswers||{};
+  stationIndex=teamData.station||0;
+  renderState();
+ });
+}
 
-  try {
-    await signInAnonymously(auth);
-    message.textContent = "تم الاتصال بنجاح! سنكمل تجهيز الانضمام.";
-  } catch (error) {
-    console.error(error);
-    message.textContent = "تعذر الاتصال. تأكدي من إعدادات Firebase وحاولي مجددًا.";
-  }
-});
+function renderState(){
+ if(!uid)return;
+ if(teamData.completed||gameData.status==="ended"){
+  show("finishedScreen");
+  document.getElementById("finalScore").textContent=teamData.points||0;
+  return;
+ }
+ if(gameData.status!=="active"){
+  show("waitingScreen");
+  document.getElementById("waitingCode").textContent=code;
+  document.getElementById("waitingStatus").textContent=
+   gameData.status==="paused"?"تم إيقاف التحدي مؤقتاً.":"بانتظار بداية اللعبة...";
+  stopTimer();
+  return;
+ }
+ show("gameScreen");
+ document.getElementById("helloTeam").textContent="أهلاً بفريق "+teamName;
+ stationIndex=teamData.station||0;
+ if(stationIndex>=4){finishGame();return;}
+ document.getElementById("stationTitle").textContent=stations[stationIndex].title;
+ document.getElementById("progressBar").style.width=((stationIndex+1)/4*100)+"%";
+ renderQuestion();
+ startTimer();
+}
+
+function renderQuestion(){
+ const station=stations[stationIndex];
+ const area=document.getElementById("questionArea");
+ const next=document.getElementById("nextButton");
+ if(station.questions){
+  const q=station.questions[questionIndex];
+  if(!q){return;}
+  document.getElementById("questionCount").textContent=
+   "السؤال "+(questionIndex+1)+" من "+station.questions.length;
+  area.innerHTML=`<div class="question">${questionIndex+1}. ${q[0]}</div>`;
+  q[1].forEach((option,i)=>{
+   const b=document.createElement("button");
+   b.className="option";
+   b.textContent=option;
+   if(answers[stationIndex+"-"+questionIndex]===i)b.classList.add("selected");
+   b.onclick=()=>selectAnswer(i);
+   area.appendChild(b);
+  });
+  next.textContent=questionIndex===station.questions.length-1?"إنهاء المحطة":"التالي";
+ }else{
+  const p=station.prompts[questionIndex];
+  document.getElementById("questionCount").textContent=
+   "التحدي الإبداعي "+(questionIndex+1)+" من "+station.prompts.length;
+  area.innerHTML=`<div class="question">${p}</div>`;
+  const t=document.createElement("textarea");
+  t.rows=5;t.placeholder="اكتبي الأمر الذكي هنا...";
+  t.value=promptAnswers[questionIndex]||"";
+  t.onchange=()=>{promptAnswers[questionIndex]=t.value;saveTeam();};
+  area.appendChild(t);
+  next.textContent=questionIndex===station.prompts.length-1?"إنهاء المحطة":"التالي";
+ }
+}
+
+function selectAnswer(i){
+ answers[stationIndex+"-"+questionIndex]=i;
+ saveTeam();
+ renderQuestion();
+}
+
+async function nextQuestion(){
+ const station=stations[stationIndex];
+ if(station.questions && answers[stationIndex+"-"+questionIndex]===undefined){
+  alert("اختاري إجابة قبل الانتقال للسؤال التالي.");return;
+ }
+ if(station.prompts && !(promptAnswers[questionIndex]||"").trim()){
+  alert("اكتبي إجابتكِ قبل الانتقال.");return;
+ }
+ const total=station.questions?station.questions.length:station.prompts.length;
+ if(questionIndex<total-1){
+  questionIndex++;renderQuestion();
+ }else{
+  await finishStation();
+ }
+}
+
+async function saveTeam(){
+ if(!uid)return;
+ teamData.answers=answers;
+ teamData.scores=scores;
+ teamData.promptAnswers=promptAnswers;
+ await db.ref("teams/"+code+"/"+uid).update({
+  answers:answers,scores:scores,promptAnswers:promptAnswers
+ });
+}
+
+async function finishStation(){
+ if(finishing)return;
+ finishing=true;stopTimer();
+ const station=stations[stationIndex];
+ if(station.questions){
+  let score=0;
+  station.questions.forEach((q,i)=>{
+   if(answers[stationIndex+"-"+i]===q[2])score++;
+  });
+  scores[stationIndex]=score;
+ }
+ const next=stationIndex+1;
+ const done=next>=4;
+ const points=(scores[0]||0)+(scores[2]||0)+
+ (scores[3]||0)*2+(teamData.promptPoints||0);
+ await db.ref("teams/"+code+"/"+uid).update({
+  answers:answers,scores:scores,promptAnswers:promptAnswers,
+  station:done?3:next,completed:done,points:points,
+  stationStartedAt:Date.now()
+ });
+ finishing=false;
+ questionIndex=0;
+ if(done){
+  teamData.completed=true;teamData.points=points;
+  show("finishedScreen");
+  document.getElementById("finalScore").textContent=points;
+ }else{
+  stationIndex=next;
+  renderState();
+ }
+}
+
+function finishGame(){
+ show("finishedScreen");
+ document.getElementById("finalScore").textContent=teamData.points||0;
+}
+
+function startTimer(){
+ stopTimer();
+ const start=teamData.stationStartedAt||gameData.startedAt||Date.now();
+ timerInterval=setInterval(()=>{
+  if(gameData.status!=="active")return;
+  const elapsed=Math.floor((Date.now()-start)/1000);
+  const remain=Math.max(0,600-elapsed);
+  const m=Math.floor(remain/60),s=remain%60;
+  document.getElementById("timer").textContent=
+   String(m).padStart(2,"0")+":"+String(s).padStart(2,"0");
+  if(remain===0)finishStation();
+ },1000);
+}
+function stopTimer(){
+ if(timerInterval){clearInterval(timerInterval);timerInterval=null;}
+}
 </script>
-
 </body>
 </html>
