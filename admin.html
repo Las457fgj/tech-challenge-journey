@@ -289,7 +289,7 @@ async function updateStatus(status,extra={}){
  try{
   await db.ref("games/"+currentCode).update({status,...extra});
  }catch(e){
-  alert("تعذر تحديث اللعبة. تحققي من صلاحيات قاعدة البيانات.");
+  alert("خطأ Firebase: " + e.code + " | " + e.message);
  }
 }
 function startGame(){
